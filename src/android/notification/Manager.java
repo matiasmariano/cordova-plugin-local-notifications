@@ -19,8 +19,6 @@
  * limitations under the License.
  */
 
- // codebeat:disable[TOO_MANY_FUNCTIONS] 
-
 package de.appplant.cordova.plugin.notification;
 
 import android.annotation.SuppressLint;
@@ -55,10 +53,10 @@ import static de.appplant.cordova.plugin.notification.Notification.Type.TRIGGERE
 public final class Manager {
 
     // TODO: temporary
-    static final String CHANNEL_ID = "default-channel-id";
+    static final String CHANNEL_ID = "wake-app-channel";
 
     // TODO: temporary
-    private static final CharSequence CHANNEL_NAME = "Default channel";
+    private static final CharSequence CHANNEL_NAME = "Wake App Alarm Vibration";
 
     // The application context
     private Context context;
@@ -70,7 +68,7 @@ public final class Manager {
      */
     private Manager(Context context) {
         this.context = context;
-        createDefaultChannel(true,true);
+        createDefaultChannel();
     }
 
     /**
@@ -108,7 +106,7 @@ public final class Manager {
      * TODO: temporary
      */
     @SuppressLint("WrongConstant")
- public void createDefaultChannel(Boolean enablelights, Boolean enablevibration) {
+    private void createDefaultChannel() {
         NotificationManager mgr = getNotMgr();
 
         if (SDK_INT < O)
@@ -120,9 +118,11 @@ public final class Manager {
             return;
 
         channel = new NotificationChannel(
-                CHANNEL_ID, CHANNEL_NAME, IMPORTANCE_DEFAULT);
-        channel.enableLights(enablelights);
-        channel.enableVibration(enablevibration);
+                CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
+
+		notificationChannel.enableVibration(true);
+		notificationChannel.Vibration(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+
         mgr.createNotificationChannel(channel);
     }
 
@@ -418,5 +418,3 @@ public final class Manager {
     }
 
 }
-
- // codebeat:enable[TOO_MANY_FUNCTIONS] 
