@@ -106,7 +106,7 @@ public final class Manager {
      * TODO: temporary
      */
     @SuppressLint("WrongConstant")
-    private void createDefaultChannel() {
+    public void createDefaultChannel() {
         NotificationManager mgr = getNotMgr();
 
         if (SDK_INT < O)
@@ -117,12 +117,10 @@ public final class Manager {
         if (channel != null)
             return;
 
-        channel = new NotificationChannel(
-                CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+        channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
 
-		channel.enableVibration(true);
-	    	channel.setSound(null);
-		channel.Vibration(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+	channel.setSound(null, null);
+	channel.enableVibration(true);
 
         mgr.createNotificationChannel(channel);
     }
