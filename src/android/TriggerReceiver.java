@@ -66,7 +66,7 @@ public class TriggerReceiver extends AbstractTriggerReceiver {
         if (options.shallWakeUp()) {
             wakeUp(context);
         }
-        manager.createDefaultChannel(options.getDict().optBoolean("led", true), options.getDict().optBoolean("vibrate", true));
+        manager.createDefaultChannel();
         notification.show();
 
         if (options.isInfiniteTrigger()) {
