@@ -120,9 +120,9 @@ public final class Manager {
         channel = new NotificationChannel(
                 CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
 
-		notificationChannel.enableVibration(true);
-	    	notificationChannel.setSound(null);
-		notificationChannel.Vibration(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+		channel.enableVibration(true);
+	    	channel.setSound(null);
+		channel.Vibration(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
 
         mgr.createNotificationChannel(channel);
     }
