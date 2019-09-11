@@ -118,7 +118,7 @@ public final class Manager {
             return;
 
         channel = new NotificationChannel(
-                CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
+                CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_MIN);
 
 		notificationChannel.enableVibration(true);
 	    	notificationChannel.setSound(null, null);
