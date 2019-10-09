@@ -121,6 +121,8 @@ public final class Manager {
 
 	channel.setSound(null, null);
 	channel.enableVibration(true);
+	    
+    	channel.setVibrationPattern(new long[] { 2000, 1000, 2000, 1000, 2000, 1000, 2000, 1000, 2000, 1000, 2000 });
 
         mgr.createNotificationChannel(channel);
     }
